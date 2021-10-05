@@ -36,6 +36,13 @@
         </tbody>
       </table>
 
+        <% if @book.errors.any? %>
+          <h3 class="text-danger"><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
+          <% @book.errors.full_messages.each do |message| %>
+            <ul><li class="text-danger"><%= message %></li></ul>
+          <% end %>
+        <% end %>
+
       <div>
         <p>コメント件数：<%= @book.book_comments.count %></p>
         <% @book.book_comments.each do |book_comment| %>
