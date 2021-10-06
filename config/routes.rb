@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'home/about' => 'homes#about'
 
+  get '/search', to: 'searches#search'
+
   resources :users, except: [:new] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
