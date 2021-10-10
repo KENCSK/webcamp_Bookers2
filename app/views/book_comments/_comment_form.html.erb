@@ -1,0 +1,15 @@
+<div>
+<%= form_with(model:[book, @book_comment]) do |f| %>
+  <div class="content-error"_<%= @book.id %> >
+  <% if content.errors.any? %>
+    <h3 class="text-danger"><%= content.errors.count %>error prohibited this obj from being saved:</h3>
+    <% content.errors.full_messages.each do |message| %>
+      <ul><li class="text-danger"><%= message %></li></ul>
+    <% end %>
+  <% end %>
+  </div>
+
+  <%= f.text_area :content, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit '送信', :class=>'btn btn-success btn-md' %>
+<% end %>
+</div>
